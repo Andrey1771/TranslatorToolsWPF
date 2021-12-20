@@ -1,0 +1,71 @@
+﻿<Window x:Class="TranslatorToolsWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TranslatorToolsWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+            <VisualBrush.Visual>
+                <Label Content="Идентификаторы строк" Foreground="LightGray" />
+            </VisualBrush.Visual>
+        </VisualBrush>
+        <Style TargetType="TextBox.Identifiers" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+            <Style.Triggers>
+                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                    <Setter Property="Background" Value="{DynamicResource CueBannerBrush}" />
+                </Trigger>
+                <Trigger Property="Text" Value="{x:Null}">
+                    <Setter Property="Background" Value="{DynamicResource CueBannerBrush}" />
+                </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="Background" Value="White" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+            <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <GroupBox Grid.ColumnSpan="3" Header="Настройки" Padding="5">
+            <StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Grid.ColumnSpan="3">
+            <Label Content="Идентификаторы строк:"/>
+            <TextBox x:Name="IdentifiersTextBox" MaxLength="250" MinWidth="100" TextChanged="IdentifiersTextBox_TextChanged">
+                
+            </TextBox>
+            <Button >Подсчитать</Button>
+        </StackPanel>
+        <Border Grid.Row="2" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1">
+            <ListView Name="phonesList" ItemsSource="{DynamicResource ResourceKey=textStrings}" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Text}">Текст</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=WordCount}">Количество слов</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=VowelsCount}">Количество гласных</GridViewColumn>
+                    </GridView>
+                </ListView.View>
+                <!--<ListView.Resources>
+                    <col:ArrayList x:Key="phones">
+                        <local:Phone Title="iPhone 6S" Company="Apple" Price="54990" />
+                        <local:Phone Title="Lumia 950" Company="Microsoft" Price="39990" />
+                        <local:Phone Title="Nexus 5X" Company="Google" Price="29990" />
+                        <local:Phone Title = "Galaxy Edge" Company = "Samsung" Price = "45670" />
+                    </col:ArrayList>
+                </ListView.Resources>-->
+            </ListView>
+        </Border>
+    </Grid>
+</Window>
