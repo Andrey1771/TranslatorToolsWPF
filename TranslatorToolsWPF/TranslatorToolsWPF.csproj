@@ -8,7 +8,12 @@
 
   <ItemGroup>
     <Folder Include="Model\" />
+    <Folder Include="NewFolder\" />
     <Folder Include="ViewModel\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HttpController\HttpClientControllerLibrary.csproj" />
   </ItemGroup>
 
 </Project>

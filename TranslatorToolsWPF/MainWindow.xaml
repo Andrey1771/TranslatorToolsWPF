@@ -12,7 +12,7 @@
                 <Label Content="Идентификаторы строк" Foreground="LightGray" />
             </VisualBrush.Visual>
         </VisualBrush>
-        <Style TargetType="TextBox.Identifiers" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+        <Style x:Key="IdentifiersTextBox" TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
             <Style.Triggers>
                 <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
                     <Setter Property="Background" Value="{DynamicResource CueBannerBrush}" />
@@ -41,15 +41,29 @@
             <StackPanel>
             </StackPanel>
         </GroupBox>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" Grid.ColumnSpan="3">
+        <Grid Grid.Row="1" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition MinWidth="150" Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
             <Label Content="Идентификаторы строк:"/>
-            <TextBox x:Name="IdentifiersTextBox" MaxLength="250" MinWidth="100" TextChanged="IdentifiersTextBox_TextChanged">
+            <TextBox x:Name="IdentifiersTextBox" Grid.Column="1" Style="{StaticResource IdentifiersTextBox}" MaxLength="250" TextChanged="IdentifiersTextBox_TextChanged">
+            </TextBox>
+            <Button Grid.Column="2" >Подсчитать</Button>
+        </Grid>
+        <!--<StackPanel Grid.Row="1" Orientation="Horizontal" Grid.ColumnSpan="3">
+            <Label Content="Идентификаторы строк:"/>
+            <TextBox Style="{StaticResource IdentifiersTextBox}" MaxLength="250" MinWidth="150" TextChanged="IdentifiersTextBox_TextChanged">
                 
             </TextBox>
             <Button >Подсчитать</Button>
-        </StackPanel>
+        </StackPanel>-->
         <Border Grid.Row="2" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1">
-            <ListView Name="phonesList" ItemsSource="{DynamicResource ResourceKey=textStrings}" >
+            <ListView Name="textStringsList" ItemsSource="{DynamicResource ResourceKey=textStrings}" >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Text}">Текст</GridViewColumn>

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslatorToolsWPF", "TranslatorToolsWPF.csproj", "{1CF6C8DB-0E40-47C9-9302-469401D8C6ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranslatorToolsLibrary.DI", "..\TranslateLibrary.DI\TranslatorToolsLibrary.DI.csproj", "{D5A2E662-32F8-4DD3-A259-B0454A252B02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranslatorToolsLibrary.Settings", "..\TranslatorToolsLibrary.Settings\TranslatorToolsLibrary.Settings.csproj", "{35450195-E5F8-4F28-8F67-E9A6B933EAE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranslatorToolsLibrary", "..\TranslatorToolsLibrary\TranslatorToolsLibrary.csproj", "{EEC1C829-79CA-48D8-BCEC-446040C70312}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClientControllerLibrary", "..\HttpController\HttpClientControllerLibrary.csproj", "{32390C35-6F18-439D-AAD4-5346EB380624}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSONSaveLoaderLibrary", "..\JSONSaveLoaderLibrary\JSONSaveLoaderLibrary.csproj", "{9DA548A3-2B0D-40C3-920A-6A1A2A1E736A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CF6C8DB-0E40-47C9-9302-469401D8C6ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CF6C8DB-0E40-47C9-9302-469401D8C6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CF6C8DB-0E40-47C9-9302-469401D8C6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CF6C8DB-0E40-47C9-9302-469401D8C6ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5A2E662-32F8-4DD3-A259-B0454A252B02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5A2E662-32F8-4DD3-A259-B0454A252B02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5A2E662-32F8-4DD3-A259-B0454A252B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5A2E662-32F8-4DD3-A259-B0454A252B02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35450195-E5F8-4F28-8F67-E9A6B933EAE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35450195-E5F8-4F28-8F67-E9A6B933EAE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35450195-E5F8-4F28-8F67-E9A6B933EAE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35450195-E5F8-4F28-8F67-E9A6B933EAE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEC1C829-79CA-48D8-BCEC-446040C70312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEC1C829-79CA-48D8-BCEC-446040C70312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEC1C829-79CA-48D8-BCEC-446040C70312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEC1C829-79CA-48D8-BCEC-446040C70312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32390C35-6F18-439D-AAD4-5346EB380624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32390C35-6F18-439D-AAD4-5346EB380624}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32390C35-6F18-439D-AAD4-5346EB380624}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32390C35-6F18-439D-AAD4-5346EB380624}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DA548A3-2B0D-40C3-920A-6A1A2A1E736A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DA548A3-2B0D-40C3-920A-6A1A2A1E736A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DA548A3-2B0D-40C3-920A-6A1A2A1E736A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DA548A3-2B0D-40C3-920A-6A1A2A1E736A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00372EE2-B3EB-492C-83BC-4DBB432665F2}
+	EndGlobalSection
+EndGlobal
