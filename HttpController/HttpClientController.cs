@@ -2,14 +2,18 @@
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using TranslatorToolsLibrary.DI.Logger;
 
 namespace HttpClientControllerLibrary
 {
     public class HttpClientController
     {
+        private readonly ILoggerHandler loggerHandler;
+
         private const double _minTimeout = 1; // In seconds
         private const double _maxTimeout = 10000; // In seconds
         private readonly HttpClient _httpClient;
+        
 
         public TimeSpan Timeout
         {
@@ -31,8 +35,10 @@ namespace HttpClientControllerLibrary
         public string AuthorizationKey { get; private set; }
         public string AuthorizationValue { get; private set; }
 
-        public HttpClientController()
+        public HttpClientController(ILoggerHandler _loggerHandler)
         {
+            loggerHandler = _loggerHandler;
+
             _httpClient = new HttpClient();
             Timeout = new TimeSpan(0, 0, 30);
             DefaultRequestUri = new Uri(/*"https://jsonplaceholder.typicode.com/todos"*/"http://tmgwebtest.azurewebsites.net/api/textstrings/2");
@@ -74,6 +80,7 @@ namespace HttpClientControllerLibrary
             {
                 var error = "Error: " + ex.HResult.ToString("X") + " Message: " + ex.Message;
                 //Log.Logger.Information()
+                loggerHandler?.Notify.Invoke();
             }
             return httpResponse;
         }
