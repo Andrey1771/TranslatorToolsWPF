@@ -5,10 +5,11 @@ using System.IO;
 using TranslatorToolsLibrary.DI;
 using System.Threading.Tasks;
 using System.Threading;
+using Newtonsoft.Json;
 
-namespace JSONSaveLoaderLibrary
+namespace JsonSaveLoaderLibrary
 {
-    public class JSONSaveLoader<T> : IFileController<T>, IAsyncFileController<T>
+    public class JsonSaveLoader<T> : IFileController<T>, IAsyncFileController<T>
     {
         public void Save(ICollection<T> data, string path)
         {
@@ -41,13 +42,13 @@ namespace JSONSaveLoaderLibrary
         {
             try
             {
-                Newtonsoft.Json.JsonSerializer serializer = new Newtonsoft.Json.JsonSerializer();
-                serializer.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
-                serializer.TypeNameHandling = Newtonsoft.Json.TypeNameHandling.Auto;
-                serializer.Formatting = Newtonsoft.Json.Formatting.Indented;
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.NullValueHandling = NullValueHandling.Ignore;
+                serializer.TypeNameHandling = TypeNameHandling.Auto;
+                serializer.Formatting = Formatting.Indented;
 
                 using (StreamWriter sw = new StreamWriter(path))
-                using (Newtonsoft.Json.JsonWriter writer = new Newtonsoft.Json.JsonTextWriter(sw))
+                using (JsonWriter writer = new JsonTextWriter(sw))
                 {
                     serializer.Serialize(writer, data, typeof(ICollection<T>));
                 }
@@ -63,12 +64,12 @@ namespace JSONSaveLoaderLibrary
         {
             try
             {
-                var settings = new Newtonsoft.Json.JsonSerializerSettings
+                var settings = new JsonSerializerSettings
                 {
-                    TypeNameHandling = Newtonsoft.Json.TypeNameHandling.Auto,
-                    NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore
+                    TypeNameHandling = TypeNameHandling.Auto,
+                    NullValueHandling = NullValueHandling.Ignore
                 };
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<ICollection<T>>(File.ReadAllText(path), settings);
+                return JsonConvert.DeserializeObject<ICollection<T>>(File.ReadAllText(path), settings);
             }
             catch (Exception ex)
             {
