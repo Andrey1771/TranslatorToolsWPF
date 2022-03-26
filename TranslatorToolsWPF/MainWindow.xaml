@@ -26,7 +26,7 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-            <Grid>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -62,16 +62,25 @@
             </TextBox>
             <Button >Подсчитать</Button>
         </StackPanel>-->
-        <Border Grid.Row="2" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1">
-            <ListView Name="textStringsList" ItemsSource="{DynamicResource ResourceKey=textStrings}" >
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Text}">Текст</GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=WordCount}">Количество слов</GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=VowelsCount}">Количество гласных</GridViewColumn>
-                    </GridView>
-                </ListView.View>
-                <!--<ListView.Resources>
+        <Grid Grid.Row="2" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Row="1" BorderBrush="Black" BorderThickness="1">
+                <ListView Name="textStringsList" ItemsSource="{DynamicResource ResourceKey=textStrings}" >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn DisplayMemberBinding="{Binding Path=Text}">Текст</GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding Path=WordCount}">Количество слов</GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding Path=VowelsCount}">Количество гласных</GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                    <!--<ListView.Resources>
                     <col:ArrayList x:Key="phones">
                         <local:Phone Title="iPhone 6S" Company="Apple" Price="54990" />
                         <local:Phone Title="Lumia 950" Company="Microsoft" Price="39990" />
@@ -79,7 +88,22 @@
                         <local:Phone Title = "Galaxy Edge" Company = "Samsung" Price = "45670" />
                     </col:ArrayList>
                 </ListView.Resources>-->
-            </ListView>
-        </Border>
+                </ListView>
+            </Border>
+            <GridSplitter Grid.Row="2" ShowsPreview="False" Height="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+            <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <Button>Отобразить логгер</Button>
+                    <Label Grid.Row="1" Content="Логгер:"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

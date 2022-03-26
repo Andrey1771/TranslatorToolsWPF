@@ -1,4 +1,5 @@
-﻿using HttpClientControllerLibrary;
+﻿using ConsoleLoggerLibrary;
+using HttpClientLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,8 @@ namespace TranslatorToolsWPF
         private void SetInitialSettings()
         {
             _clientController = new HttpClientController();
+            //var logSystem = new LogSystem();
+            var var = new ConsoleLogger();
         }
 
         //Кажется, что есть событие лучше

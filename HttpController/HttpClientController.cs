@@ -1,19 +1,17 @@
-﻿using Serilog;
+﻿using EventBusLibrary;
+using Serilog;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using TranslatorToolsLibrary.DI.Logger;
+using TranslatorToolsLibrary.DI.IMessenger;
 
-namespace HttpClientControllerLibrary
+namespace HttpClientLibrary
 {
     public class HttpClientController
     {
-        private readonly ILoggerHandler loggerHandler;
-
         private const double _minTimeout = 1; // In seconds
         private const double _maxTimeout = 10000; // In seconds
         private readonly HttpClient _httpClient;
-        
 
         public TimeSpan Timeout
         {
@@ -35,9 +33,9 @@ namespace HttpClientControllerLibrary
         public string AuthorizationKey { get; private set; }
         public string AuthorizationValue { get; private set; }
 
-        public HttpClientController(ILoggerHandler _loggerHandler)
+        public HttpClientController()
         {
-            loggerHandler = _loggerHandler;
+            //loggerHandler = _loggerHandler;
 
             _httpClient = new HttpClient();
             Timeout = new TimeSpan(0, 0, 30);
@@ -62,6 +60,7 @@ namespace HttpClientControllerLibrary
 
             try
             {
+                throw new Exception("Badd");
                 if (AuthorizationEnabled)
                 {
                     httpRequest.Headers.Add(AuthorizationKey, AuthorizationValue);
@@ -80,7 +79,8 @@ namespace HttpClientControllerLibrary
             {
                 var error = "Error: " + ex.HResult.ToString("X") + " Message: " + ex.Message;
                 //Log.Logger.Information()
-                loggerHandler?.Notify.Invoke();
+                //loggerHandler?.Notify.Invoke();
+                EventBus.RaiseEvent<IMessenger>(h => h.CreateExceptionMessage("Что-то", DateTime.Now, ex));
             }
             return httpResponse;
         }

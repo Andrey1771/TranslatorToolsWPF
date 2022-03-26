@@ -6,18 +6,26 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslatorToolsWPF", "TranslatorToolsWPF.csproj", "{1CF6C8DB-0E40-47C9-9302-469401D8C6ED}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslatorToolsLibrary.DI", "..\TranslateLibrary.DI\TranslatorToolsLibrary.DI.csproj", "{D5A2E662-32F8-4DD3-A259-B0454A252B02}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F262284A-5024-4762-A620-A44086EB0044} = {F262284A-5024-4762-A620-A44086EB0044}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslatorToolsLibrary.Settings", "..\TranslatorToolsLibrary.Settings\TranslatorToolsLibrary.Settings.csproj", "{35450195-E5F8-4F28-8F67-E9A6B933EAE4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslatorToolsLibrary", "..\TranslatorToolsLibrary\TranslatorToolsLibrary.csproj", "{EEC1C829-79CA-48D8-BCEC-446040C70312}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClientControllerLibrary", "..\HttpController\HttpClientControllerLibrary.csproj", "{32390C35-6F18-439D-AAD4-5346EB380624}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClientLibrary", "..\HttpController\HttpClientLibrary.csproj", "{32390C35-6F18-439D-AAD4-5346EB380624}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonSaveLoaderLibrary", "..\JSONSaveLoaderLibrary\JsonSaveLoaderLibrary.csproj", "{9DA548A3-2B0D-40C3-920A-6A1A2A1E736A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLogger", "..\ConsoleLogger\ConsoleLogger.csproj", "{8FF4DB36-5617-4EB7-8233-7CFD304939B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleLoggerLibrary", "..\ConsoleLogger\ConsoleLoggerLibrary.csproj", "{8FF4DB36-5617-4EB7-8233-7CFD304939B8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D5A2E662-32F8-4DD3-A259-B0454A252B02} = {D5A2E662-32F8-4DD3-A259-B0454A252B02}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFLogger", "..\WPFLogger\WPFLogger.csproj", "{200A2783-4A1E-424C-AD47-185C46BF5876}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageLoggerLibrary", "..\WPFLogger\MessageLoggerLibrary.csproj", "{200A2783-4A1E-424C-AD47-185C46BF5876}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBusLibrary", "..\EventBusLibrary\EventBusLibrary.csproj", "{F262284A-5024-4762-A620-A44086EB0044}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +65,10 @@ Global
 		{200A2783-4A1E-424C-AD47-185C46BF5876}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{200A2783-4A1E-424C-AD47-185C46BF5876}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{200A2783-4A1E-424C-AD47-185C46BF5876}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F262284A-5024-4762-A620-A44086EB0044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F262284A-5024-4762-A620-A44086EB0044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F262284A-5024-4762-A620-A44086EB0044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F262284A-5024-4762-A620-A44086EB0044}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
