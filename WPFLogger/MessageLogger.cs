@@ -1,5 +1,7 @@
 ﻿using System;
 using TranslatorToolsLibrary.DI.IMessenger;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace MessageLoggerLibrary
 {
@@ -7,7 +9,7 @@ namespace MessageLoggerLibrary
     {
 
 
-        MessageLogger()
+        MessageLogger(TextBlock textBlock)
         {
 
         }

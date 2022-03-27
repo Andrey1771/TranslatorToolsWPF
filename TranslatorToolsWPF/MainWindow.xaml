@@ -66,12 +66,12 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Border Grid.Row="1" BorderBrush="Black" BorderThickness="1">
+            <Border Grid.Row="0" BorderBrush="Black" BorderThickness="1">
                 <ListView Name="textStringsList" ItemsSource="{DynamicResource ResourceKey=textStrings}" >
                     <ListView.View>
                         <GridView>
@@ -90,19 +90,20 @@
                 </ListView.Resources>-->
                 </ListView>
             </Border>
-            <GridSplitter Grid.Row="2" ShowsPreview="False" Height="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
-            <Grid Grid.Row="3">
+            <GridSplitter Grid.Row="1" ShowsPreview="False" Height="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+            <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <StackPanel Orientation="Horizontal">
-                    <Button>Отобразить логгер</Button>
-                    <Label Grid.Row="1" Content="Логгер:"/>
+                <StackPanel Grid.Row="0"  Orientation="Horizontal">
+                    <Button x:Name="SwitchLoggerButton" Click="SwitchLoggerButton_Click">Отобразить логгер</Button>
+                    <Label Content="Логгер:"/>
                 </StackPanel>
+                <TextBlock x:Name="LoggerTextBlock" Grid.Row="1" Visibility="Collapsed"></TextBlock>
             </Grid>
         </Grid>
     </Grid>

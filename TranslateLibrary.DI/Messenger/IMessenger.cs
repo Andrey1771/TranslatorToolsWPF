@@ -9,8 +9,8 @@ namespace TranslatorToolsLibrary.DI.IMessenger
 {
     public interface IMessenger : IGlobalSubscriber
     {
-        void CreateMessage(string Message, DateTime DateTime, Exception Exception = null);
-        void CreateWarningMessage(string Message, DateTime DateTime, Exception Exception = null);
-        void CreateExceptionMessage(string Message, DateTime DateTime, Exception Exception = null);
+        void CreateMessage(string message, DateTime dateTime, Exception exception = null);
+        void CreateWarningMessage(string message, DateTime dateTime, Exception exception = null);
+        void CreateExceptionMessage(string message, DateTime dateTime, Exception exception = null);
     }
 }

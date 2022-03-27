@@ -30,17 +30,17 @@ namespace TranslatorToolsWPF
         public MainWindow()
         {
             InitializeComponent();
-            SetInitialSettings();
+            Loaded += MainWindow_Loaded;
         }
 
-        private void SetInitialSettings()
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             _clientController = new HttpClientController();
-            //var logSystem = new LogSystem();
-            var var = new ConsoleLogger();
+            /*var logSystem = new LogSystem();*/
+            var console = new ConsoleLogger();
         }
 
-        //Кажется, что есть событие лучше
+        // Кажется, что есть событие лучше
         private async void IdentifiersTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
@@ -51,7 +51,7 @@ namespace TranslatorToolsWPF
             var res = await _clientController.GetAsync();
         }
 
-        private static readonly Regex _regex = new("^([(0-9)]+,)+"); //regex that matches disallowed text new("[+((0-9)+?(,))]+");
+        private static readonly Regex _regex = new("^([(0-9)]+,)+"); // regex that matches disallowed text new("[+((0-9)+?(,))]+");
         private static bool IsTextAllowed(string text)
         {
             return !_regex.IsMatch(text);
@@ -61,5 +61,31 @@ namespace TranslatorToolsWPF
             return _regex.Replace(text, "");
         }
 
+        private void SwitchLoggerButton_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            if (LoggerTextBlock.Visibility == Visibility.Visible)
+            {
+                LoggerTextBlock.Visibility = Visibility.Collapsed;
+                button.Content = "Отобразить логгер"; // TODO Скорое всего в будущем придется поменять
+            }
+            else
+            {
+                LoggerTextBlock.Visibility = Visibility.Visible;
+                button.Content = "Скрыть логгер";
+            }
+        }
+
+
+
+        private StringBuilder CreateMessage(string message, DateTime dateTime, Exception exception)
+        {
+            var messageBuilder = new StringBuilder();
+
+            messageBuilder.AppendLine($"{dateTime:G} {message}"); // TODO Планируется усложнить
+            messageBuilder.AppendLine(exception.Message);
+
+            return messageBuilder;
+        }
     }
 }

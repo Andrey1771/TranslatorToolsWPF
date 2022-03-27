@@ -10,17 +10,17 @@ namespace ConsoleLoggerLibrary
             Console.WriteLine("Hello World!");
         }
 
-        public void CreateExceptionMessage(string Message, DateTime DateTime, Exception Exception = null)
+        public void CreateExceptionMessage(string message, DateTime dateTime, Exception exception = null)
         {
             throw new NotImplementedException();
         }
 
-        public void CreateMessage(string Message, DateTime DateTime, Exception Exception = null)
+        public void CreateMessage(string message, DateTime dateTime, Exception exception = null)
         {
             throw new NotImplementedException();
         }
 
-        public void CreateWarningMessage(string Message, DateTime DateTime, Exception Exception = null)
+        public void CreateWarningMessage(string message, DateTime dateTime, Exception exception = null)
         {
             throw new NotImplementedException();
         }

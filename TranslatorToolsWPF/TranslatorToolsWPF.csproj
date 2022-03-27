@@ -7,14 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="NewFolder\" />
-    <Folder Include="ViewModel\" />
+    <ProjectReference Include="..\ConsoleLogger\ConsoleLoggerLibrary.csproj" />
+    <ProjectReference Include="..\HttpController\HttpClientLibrary.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleLogger\ConsoleLoggerLibrary.csproj" />
-    <ProjectReference Include="..\HttpController\HttpClientLibrary.csproj" />
+    <Folder Include="Commands\" />
   </ItemGroup>
 
 </Project>
