@@ -61,20 +61,6 @@ namespace TranslatorToolsWPF
             return _regex.Replace(text, "");
         }
 
-        private void SwitchLoggerButton_Click(object sender, RoutedEventArgs e)
-        {
-            var button = sender as Button;
-            if (LoggerTextBlock.Visibility == Visibility.Visible)
-            {
-                LoggerTextBlock.Visibility = Visibility.Collapsed;
-                button.Content = "Отобразить логгер"; // TODO Скорое всего в будущем придется поменять
-            }
-            else
-            {
-                LoggerTextBlock.Visibility = Visibility.Visible;
-                button.Content = "Скрыть логгер";
-            }
-        }
 
 
 

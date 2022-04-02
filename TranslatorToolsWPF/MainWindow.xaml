@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TranslatorToolsWPF"
+        xmlns:local="clr-namespace:TranslatorToolsWPF" xmlns:views="clr-namespace:TranslatorToolsWPF.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
@@ -91,20 +91,7 @@
                 </ListView>
             </Border>
             <GridSplitter Grid.Row="1" ShowsPreview="False" Height="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
-            <Grid Grid.Row="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <StackPanel Grid.Row="0"  Orientation="Horizontal">
-                    <Button x:Name="SwitchLoggerButton" Click="SwitchLoggerButton_Click">Отобразить логгер</Button>
-                    <Label Content="Логгер:"/>
-                </StackPanel>
-                <TextBlock x:Name="LoggerTextBlock" Grid.Row="1" Visibility="Collapsed"></TextBlock>
-            </Grid>
+            <views:MessageLoggerView Grid.Row="2"></views:MessageLoggerView>
         </Grid>
     </Grid>
 </Window>
