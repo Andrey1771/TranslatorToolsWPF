@@ -60,7 +60,7 @@ namespace HttpClientLibrary
 
             try
             {
-                throw new Exception("Badd");
+                //throw new Exception("Badd");
                 if (AuthorizationEnabled)
                 {
                     httpRequest.Headers.Add(AuthorizationKey, AuthorizationValue);
@@ -71,7 +71,7 @@ namespace HttpClientLibrary
                     httpResponse = await _httpClient.GetAsync(uri).ConfigureAwait(false);
                 }
 
-                httpResponse.EnsureSuccessStatusCode();//Todo в лог httpResponse.EnsureSuccessStatusCode().StatusCode
+                httpResponse.EnsureSuccessStatusCode(); // Todo в лог httpResponse.EnsureSuccessStatusCode().StatusCode
                 //Log.Logger.Information()
                 var res = await httpResponse.Content.ReadAsStringAsync();
             }
