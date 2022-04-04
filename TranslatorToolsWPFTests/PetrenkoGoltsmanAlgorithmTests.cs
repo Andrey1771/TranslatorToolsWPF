@@ -75,7 +75,7 @@ namespace TranslatorToolsWPFTests
                                                     "come out and make a mistake.",
                                                     "I don't know what weapons world war 3 will",
                                                     "The most weighty argument against democracy is a five-minute conversation with a voter. | Some",
-                                                    "You have to fight for life, you can die for beautyM.| Tarik" };
+                                                    "You have to fight for life, you can die for beautyM.| Ta" };
 
             var correctMatches = new Dictionary<string, List<string>>() { { "Ќе выходи из комнаты, не совершай ошибку.", new List<string>() { "Do not leave the room, don't make a mistake.", "I don't know what weapons world war 3 will" } },
                                                                   { "выходи и совершай ошибку.|", new List<string>() },
@@ -85,8 +85,9 @@ namespace TranslatorToolsWPFTests
             };
 
             var answer = true;
-            //TODO Fix that
-            Assert.AreEqual(PetrenkoGoltsmanAlgorithm.CompareIndexes(leftStrList, rightStrList).Result.SequenceEqual(correctMatches), answer);
+            var result = PetrenkoGoltsmanAlgorithm.CompareIndexes(leftStrList, rightStrList).Result;
+
+            Assert.AreEqual(result.All(n => correctMatches.Any(t => t.Value.SequenceEqual(n.Value))), answer);
         }
 
         [TestMethod]
@@ -131,46 +132,3 @@ namespace TranslatorToolsWPFTests
         }
     }
 }
-
-
-/*
-public static List<double> CalculateIndex(IEnumerable<string> strList)
-        {
-            var indexesList = new List<double>();
-            foreach (var str in strList) // ћожет быть, имеет смысл разбить на несколько участков и потоков, соответственно?
-            {
-                indexesList.Add(Calculate(TakeSymbols(RemoveComments(str)).Length));
-            }
-
-            return indexesList;
-        }
-
-        public static async Task<Dictionary<string, List<string>>> CompareIndexes(IEnumerable<string> leftStrList, IEnumerable<string> rightStrList)
-        {
-            var leftIndexesList = await Task.Run(() =>
-            {
-                return CalculateIndex(leftStrList);
-            });
-
-            var rightIndexesList = await Task.Run(() =>
-            {
-                return CalculateIndex(rightStrList);
-            });
-
-            return MatchStrings(leftStrList, rightStrList, leftIndexesList, rightIndexesList);
-        }
- */
-
-/*            var i = PetrenkoGoltsmanAlgorithm.CalculateIndex("Ќе выходи из комнаты, не совершай ошибку.");
-            var r = PetrenkoGoltsmanAlgorithm.CalculateIndex("выходи и совершай ошибку.|");
-            var t = PetrenkoGoltsmanAlgorithm.CalculateIndex("«а жизнь нужно сражатьс€, за красоту можно умере.| “арик");
-            var y = PetrenkoGoltsmanAlgorithm.CalculateIndex("—амый весомый аргумент против демократии - это п€тиминутный разговор с избирателем. | Some");
-            var u = PetrenkoGoltsmanAlgorithm.CalculateIndex("я не знаю каким оружием будет вестись 3 мирова€ война, но 4 будет палками и камн€ми");
-
-
-            var o = PetrenkoGoltsmanAlgorithm.CalculateIndex("Do not leave the room, don't make a mistake.");
-            var k = PetrenkoGoltsmanAlgorithm.CalculateIndex("come out and make a mistake.");
-            var g = PetrenkoGoltsmanAlgorithm.CalculateIndex("I don't know what weapons world war 3 will");
-            var h = PetrenkoGoltsmanAlgorithm.CalculateIndex("The most weighty argument against democracy is a five-minute conversation with a voter. | Some");
-            var j = PetrenkoGoltsmanAlgorithm.CalculateIndex("You have to fight for life, you can die for beautyM.| Tarik");
-*/
