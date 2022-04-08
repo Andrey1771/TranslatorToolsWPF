@@ -1,5 +1,4 @@
 ﻿using System;
-using TranslatorToolsLibrary.DI.IMessenger;
 using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
@@ -8,7 +7,7 @@ using System.Text;
 
 namespace TranslatorToolsWPF.Models
 {
-    public class MessageLogger : INotifyPropertyChanged, IMessenger
+    public class MessageLogger : INotifyPropertyChanged
     {
         private string _message;
         private DateTime _dateTime;
@@ -49,19 +48,6 @@ namespace TranslatorToolsWPF.Models
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
-
-        public void CreateExceptionMessage(string message, DateTime dateTime, Exception exception = null) => UpdateMessage(message, dateTime, exception);
-
-        public void CreateMessage(string message, DateTime dateTime, Exception exception = null) => UpdateMessage(message, dateTime, exception);
-
-        public void CreateWarningMessage(string message, DateTime dateTime, Exception exception = null) => UpdateMessage(message, dateTime, exception);
-
-        private void UpdateMessage(string message, DateTime dateTime, Exception exception)
-        {
-            Message = message;
-            DateTime = dateTime;
-            Exception = exception;
         }
     }
 }

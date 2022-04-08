@@ -17,6 +17,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TranslatorToolsWPF.Models;
+using TranslatorToolsWPF.ViewModels;
 
 namespace TranslatorToolsWPF
 {
@@ -36,8 +38,11 @@ namespace TranslatorToolsWPF
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             _clientController = new HttpClientController();
-            /*var logSystem = new LogSystem();*/
-            var console = new ConsoleLogger();
+            
+
+            DataContext = new MainViewModel(new List<MessageLogger>() { new MessageLogger() }); // Создали ViewModel
+            //var logSystem = new MessageLogger();
+            //var console = new ConsoleLogger();
         }
 
         // Кажется, что есть событие лучше

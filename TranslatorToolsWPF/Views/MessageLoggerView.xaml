@@ -19,6 +19,6 @@
             <Button x:Name="SwitchLoggerButton" Click="SwitchLoggerButton_Click">Отобразить логгер</Button>
             <Label Content="Логгер:"/>
         </StackPanel>
-        <TextBlock x:Name="LoggerTextBlock" Grid.Row="1" Visibility="Collapsed"></TextBlock>
+        <TextBlock Text="" x:Name="LoggerTextBlock" Grid.Row="1" Visibility="Collapsed"></TextBlock>
     </Grid>
 </UserControl>

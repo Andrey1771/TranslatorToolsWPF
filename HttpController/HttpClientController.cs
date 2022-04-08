@@ -60,7 +60,7 @@ namespace HttpClientLibrary
 
             try
             {
-                //throw new Exception("Badd");
+                throw new Exception("Badd");
                 if (AuthorizationEnabled)
                 {
                     httpRequest.Headers.Add(AuthorizationKey, AuthorizationValue);
