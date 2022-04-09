@@ -29,7 +29,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslatorToolsWPFTests", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetrenkoGoltsmanAlgorithmLibrary", "..\PetrenkoGoltsmanAlgorithm\PetrenkoGoltsmanAlgorithmLibrary.csproj", "{FDBC6221-6AB8-4550-8BB1-BABCF4653835}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranslatorToolsWPF.ConverterToExcel", "..\TranslatorToolsWPF.ConverterToExcel\TranslatorToolsWPF.ConverterToExcel.csproj", "{FC5893A7-B523-45DB-B6FC-2C42C91BBA4F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPPlusLibrary", "..\EPPlusLibrary\EPPlusLibrary.csproj", "{77B962B8-87B4-4CA9-9E34-21D7D306579A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibreOfficeLibrary", "..\LibreOfficeLibrary\LibreOfficeLibrary.csproj", "{5DDC9CEA-2473-4E8B-96AE-5698A87ABCC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranslatorFileLogicLibrary", "..\TranslatorFileLogic\TranslatorFileLogicLibrary.csproj", "{FBDFBFCE-5135-4957-A737-AC5F84167464}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,10 +81,18 @@ Global
 		{FDBC6221-6AB8-4550-8BB1-BABCF4653835}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDBC6221-6AB8-4550-8BB1-BABCF4653835}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDBC6221-6AB8-4550-8BB1-BABCF4653835}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC5893A7-B523-45DB-B6FC-2C42C91BBA4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC5893A7-B523-45DB-B6FC-2C42C91BBA4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC5893A7-B523-45DB-B6FC-2C42C91BBA4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC5893A7-B523-45DB-B6FC-2C42C91BBA4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77B962B8-87B4-4CA9-9E34-21D7D306579A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77B962B8-87B4-4CA9-9E34-21D7D306579A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77B962B8-87B4-4CA9-9E34-21D7D306579A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77B962B8-87B4-4CA9-9E34-21D7D306579A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DDC9CEA-2473-4E8B-96AE-5698A87ABCC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DDC9CEA-2473-4E8B-96AE-5698A87ABCC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DDC9CEA-2473-4E8B-96AE-5698A87ABCC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DDC9CEA-2473-4E8B-96AE-5698A87ABCC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBDFBFCE-5135-4957-A737-AC5F84167464}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBDFBFCE-5135-4957-A737-AC5F84167464}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBDFBFCE-5135-4957-A737-AC5F84167464}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBDFBFCE-5135-4957-A737-AC5F84167464}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
