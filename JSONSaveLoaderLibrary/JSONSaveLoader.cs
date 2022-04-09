@@ -11,22 +11,9 @@ namespace JsonSaveLoaderLibrary
 {
     public class JsonSaveLoader<T> : IFileController<T>, IAsyncFileController<T>
     {
-        public void Save(ICollection<T> data, string path)
-        {
-            Serialize(data, path);
-        }
-
         public ICollection<T> Load(string path)
         {
             return Deserialize(path);
-        }
-
-        public Task SaveAsync(ICollection<T> data, string path)
-        {
-            return Task.Run(() =>
-            {
-                Serialize(data, path);
-            });
         }
 
         public Task<ICollection<T>> LoadAsync(string path)
@@ -34,7 +21,20 @@ namespace JsonSaveLoaderLibrary
 
             return Task.Run(() =>
             {
-                return Deserialize(path);
+                return Load(path);
+            });
+        }
+
+        public void Save(ICollection<T> data, string path)
+        {
+            Serialize(data, path);
+        }
+
+        public Task SaveAsync(ICollection<T> data, string path)
+        {
+            return Task.Run(() =>
+            {
+                Save(data, path);
             });
         }
 
