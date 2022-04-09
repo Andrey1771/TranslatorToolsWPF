@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JsonSaveLoaderLibrary;
+using System;
 using TranslatorToolsLibrary.DI;
 
 namespace TranslatorToolsLibrary
@@ -11,15 +12,15 @@ namespace TranslatorToolsLibrary
         {
             _fileLogic = new TranslatorFileLogic();
         }
-
+        //where T : new()
         public void SaveData(string path)
         {
-
+            var jsonController = new JsonSaveLoader<>
         }
 
         public void LoadData(string path)
         {
-
+            
         }
 
     }
