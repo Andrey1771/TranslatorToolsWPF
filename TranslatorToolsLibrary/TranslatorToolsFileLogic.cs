@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TranslatorToolsLibrary.DI;
 
-namespace TranslatorToolsLibrary
+namespace TranslatorToolsLibrary.TranslatorToolsLibrary
 {
-    public class TranslatorFileLogic : ITranslatorFileLogic
+    public class TranslatorFileLogic : ITranslatorFileLogic // TODO
     {
 
     }
