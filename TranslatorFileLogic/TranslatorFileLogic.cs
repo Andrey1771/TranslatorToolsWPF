@@ -1,7 +1,7 @@
 ﻿using System;
 using TranslatorToolsLibrary.DI;
 
-namespace TranslatorFileLogicLibrary
+namespace TranslatorToolsLibrary.TranslatorFileLogicLibrary
 {
     public class TranslatorFileLogic : ITranslatorFileLogic
     {
