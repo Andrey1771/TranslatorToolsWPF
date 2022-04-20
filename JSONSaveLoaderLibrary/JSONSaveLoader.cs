@@ -9,21 +9,22 @@ using Newtonsoft.Json;
 
 namespace JsonSaveLoaderLibrary
 {
-    public class JsonSaveLoader<T> : IFileController<T>, IAsyncFileController<T>
+    public class JsonSaveLoader<T>/* : *//*IFileController<T>,*//* IAsyncFileController<T>*/
     {
-        public ICollection<T> Load(string path)
+        public T Load(string path)
         {
             return Deserialize(path);
+            //return Deserialize(path);
         }
 
-        public Task<ICollection<T>> LoadAsync(string path)
+/*        public Task<ICollection<T>> LoadAsync(string path)
         {
 
             return Task.Run(() =>
             {
                 return Load(path);
             });
-        }
+        }*/
 
         public void Save(ICollection<T> data, string path)
         {
@@ -60,16 +61,19 @@ namespace JsonSaveLoaderLibrary
             }
         }
 
-        private ICollection<T> Deserialize(string path)
+        private T Deserialize(string path)
         {
             try
             {
                 var settings = new JsonSerializerSettings
                 {
                     TypeNameHandling = TypeNameHandling.Auto,
-                    NullValueHandling = NullValueHandling.Ignore
+                    NullValueHandling = NullValueHandling.Ignore,
+                    
                 };
-                return JsonConvert.DeserializeObject<ICollection<T>>(File.ReadAllText(path), settings);
+
+                var file = File.ReadAllText(path);
+                return JsonConvert.DeserializeObject<T>(file, settings);
             }
             catch (Exception ex)
             {

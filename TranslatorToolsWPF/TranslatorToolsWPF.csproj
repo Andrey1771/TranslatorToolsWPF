@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ConsoleLogger\ConsoleLoggerLibrary.csproj" />
     <ProjectReference Include="..\HttpController\HttpClientLibrary.csproj" />
+    <ProjectReference Include="..\TranslatorToolsLibrary\TranslatorToolsLibrary.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -7,8 +7,16 @@ using TranslatorToolsLibrary.DI;
 
 namespace TranslatorToolsLibrary.TranslatorToolsLibrary
 {
-    public class TranslatorFileLogic : ITranslatorFileLogic // TODO
+    public class TranslatorFileLogic<T> : ITranslatorFileLogic<T> // TODO
     {
+        public ICollection<T> LoadData(string path)
+        {
+            throw new NotImplementedException();
+        }
 
+        public void SaveData(ICollection<T> data)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

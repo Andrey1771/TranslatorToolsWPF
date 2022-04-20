@@ -14,7 +14,7 @@ namespace TranslatorToolsWPF.ViewModels
 
         public MainViewModel(IEnumerable<MessageLogger> messagesLogger)
         {
-            MessagesLoggerList = new ObservableCollection<MessageLoggerViewModel>(messagesLogger.Select(b => new MessageLoggerViewModel(b)));
+            //MessagesLoggerList = new ObservableCollection<MessageLoggerViewModel>(messagesLogger.Select(b => new MessageLoggerViewModel(b)));
         }
     }
 }

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -7,6 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\JSONSaveLoaderLibrary\TranslatorToolsLibrary.JsonSaveLoaderLibrary.csproj" />
     <ProjectReference Include="..\TranslateLibrary.DI\TranslatorToolsLibrary.DI.csproj" />
+    <ProjectReference Include="..\TranslatorToolsLibrary.TranslatorToolsObjects\TranslatorToolsLibrary.TranslatorToolsObjects.csproj" />
   </ItemGroup>
 
 </Project>

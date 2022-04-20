@@ -3,10 +3,17 @@ using TranslatorToolsLibrary.DI.Entities;
 
 namespace TranslatorToolsLibrary.TranslatorToolsObjects
 {
-    public class Children : IChildren
+    public class Children /*: IChildren*/
     {
-        public ISource Source { get; set; }
-        public ITranslation Translation { get; set; }
+        public Source Source { get; set; }
+        public Translation Translation { get; set; }
         public string Key { get; set; }
+
+        public Children(Source source = default, Translation translation = default, string key = default)
+        {
+            Source = source;
+            Translation = translation;
+            Key = key;
+        }
     }
 }

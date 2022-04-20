@@ -25,7 +25,7 @@ namespace TranslatorToolsWPF.ViewModels
         }
         // Using a DependencyProperty as the backing store for Message.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MessagesProperty =
-            DependencyProperty.Register("Messages", typeof(List), typeof(MessageLoggerViewModel), new PropertyMetadata(default(string)));
+            DependencyProperty.Register("Messages", typeof(string/*List*/), typeof(MessageLoggerViewModel), new PropertyMetadata(default(string)));
 
         public DateTime DateTime
         {
@@ -54,7 +54,7 @@ namespace TranslatorToolsWPF.ViewModels
 
         private void UpdateMessage(string message, DateTime dateTime, Exception exception)
         {
-            Message = message;
+            Messages = message;//Todo
             DateTime = dateTime;
             Exception = exception;
         }

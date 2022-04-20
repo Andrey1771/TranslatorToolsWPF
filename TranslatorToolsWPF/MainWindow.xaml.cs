@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TranslatorToolsLibrary.TranslatorToolsLibrary;
 using TranslatorToolsWPF.Models;
 using TranslatorToolsWPF.ViewModels;
 
@@ -53,6 +54,8 @@ namespace TranslatorToolsWPF
             {
                 textBox.Text = RemoveInvalidSymbols(textBox.Text);
             }
+            var translatorTools = new TranslatorTools();
+            translatorTools.LoadData(@"F:\Тестовые_Задания\Тестовое The Most Games\Task2\batch07-de.loc");
             var res = await _clientController.GetAsync();
         }
 
