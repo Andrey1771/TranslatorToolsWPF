@@ -1,13 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EPPlusLibrary.PositionUtil
+﻿namespace EPPlusLibrary.PositionUtil
 {
     public struct YPosition
     {
-        public int Y { get; set; }
+        int Y { get; set; }
+
+        public YPosition(int y)
+        {
+            Y = y;
+        }
+
+        public static bool operator >(YPosition leftYPos, YPosition rightYPos)
+            => leftYPos.Y > rightYPos.Y;
+
+        public static bool operator <(YPosition leftYPos, YPosition rightYPos)
+            => leftYPos.Y < rightYPos.Y;
     }
 }

@@ -8,7 +8,7 @@ namespace EPPlusLibrary
 {
     public class EpplusController
     {
-        public Task Export(ExcelTable table, string filePath);
+        public Task Export(Table table, string filePath);
         public void Import(string filePath);
     }
 }
