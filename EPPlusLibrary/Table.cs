@@ -1,4 +1,5 @@
 ﻿using EPPlusLibrary.PositionUtil;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,6 +12,9 @@ namespace EPPlusLibrary
     public class Table<T>
     {
         Dictionary<Rectangle, T> valuesMap = new(new RectangleEqualityComparer());
+
+        const int _minX = 0;
+        const int _minY = 0;
 
         /// <summary>
         /// 
@@ -92,23 +96,11 @@ namespace EPPlusLibrary
         public IList<IList<T>> ToListTable(T defaultObj = default)
         {
             var keys = valuesMap.Keys;
-            var minX = keys.Min((key) =>
-            {
-                var x1 = key.FirstPosition.X;
-                var x2 = key.SecondPosition.X;
-                return x1 < x2 ? x1 : x2;
-            });
             var maxX = keys.Max((key) =>
             {
                 var x1 = key.FirstPosition.X;
                 var x2 = key.SecondPosition.X;
                 return x1 > x2 ? x1 : x2;
-            });
-            var minY = keys.Min((key) =>
-            {
-                var y1 = key.FirstPosition.Y;
-                var y2 = key.SecondPosition.Y;
-                return y1 < y2 ? y1 : y2;
             });
             var maxY = keys.Max((key) =>
             {
@@ -116,9 +108,20 @@ namespace EPPlusLibrary
                 var y2 = key.SecondPosition.Y;
                 return y1 > y2 ? y1 : y2;
             });
-            
-            var firstPos = new Position(minX)
 
+            var minPos = new Position(_minX, _minY);
+            var maxPos = new Position(maxX, maxY);
+
+            var difPositions = maxPos - minPos;
+
+            var xLength = Math.Abs((int)difPositions.X);
+            var yLength = Math.Abs((int)difPositions.Y);
+
+            var row = new List<T>(Enumerable.Repeat(defaultObj, xLength));
+            var tableAsList = new List<List<T>>(Enumerable.Repeat(row, yLength));
+            
+
+            
         }
 
         /// <summary>

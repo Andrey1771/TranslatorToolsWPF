@@ -15,7 +15,7 @@ namespace TranslatorToolsWPFTests.EPPlusLibrary
         public void TestAdd()
         {
             var ok = false;
-            var table = new Table<>
+            var table = new Table<bool>();
             Add(Position inFirstPosition, Position inSecondPosition, T obj, out ok);
         }
     }

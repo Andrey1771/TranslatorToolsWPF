@@ -10,5 +10,14 @@
             X = x;
             Y = y;
         }
+
+        public Position(XPosition x, YPosition y)
+        {
+            X = x;
+            Y = y;
+        }
+
+        public static Position operator -(Position leftPos, Position rightPos)
+            => new Position(leftPos.X - rightPos.X, leftPos.Y - rightPos.Y);
     }
 }
