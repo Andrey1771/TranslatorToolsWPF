@@ -1,4 +1,5 @@
 ﻿using EPPlusLibrary;
+using EPPlusLibrary.PositionUtil;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,19 @@ namespace TranslatorToolsWPFTests.EPPlusLibrary
         [TestMethod]
         public void TestAdd()
         {
-            var ok = false;
+            bool ok;
             var table = new Table<bool>();
-            Add(Position inFirstPosition, Position inSecondPosition, T obj, out ok);
+            var firstPos = new Position(0, 0);
+            var secondPos = new Position(2, 2);
+
+            var correctAnswer = new List<List<bool>>() { new() { true, true, true },
+            new() { true, true, true },
+            new() { true, true, true },
+            };
+
+            var listTable = table.Add(firstPos, secondPos, true, out ok).ToListTable(false);
+
+            Assert.AreEqual(listTable.SequenceEqual(correctAnswer), true);
         }
     }
 }

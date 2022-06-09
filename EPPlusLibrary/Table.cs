@@ -36,14 +36,7 @@ namespace EPPlusLibrary
         /// <returns></returns>
         public Table<T> Add(Position inPosition, T obj, out bool ok)
         {
-            ok = true;
-
-            if (CheckForFree(inPosition))
-                valuesMap.Add(new Rectangle(inPosition, inPosition), obj);
-            else
-                ok = false;
-
-            return this;
+            return Add(inPosition, inPosition, obj, out ok);
         }
 
         /// <summary>
@@ -93,16 +86,16 @@ namespace EPPlusLibrary
         /// </summary>
         /// <param name="defaultObj"></param>
         /// <returns></returns>
-        public IList<IList<T>> ToListTable(T defaultObj = default)
+        public List<List<T>> ToListTable(T defaultObj = default)
         {
-            var keys = valuesMap.Keys;
-            var maxX = keys.Max((key) =>
+            var rectangleKeys = valuesMap.Keys;
+            var maxX = rectangleKeys.Max((key) =>
             {
                 var x1 = key.FirstPosition.X;
                 var x2 = key.SecondPosition.X;
                 return x1 > x2 ? x1 : x2;
             });
-            var maxY = keys.Max((key) =>
+            var maxY = rectangleKeys.Max((key) =>
             {
                 var y1 = key.FirstPosition.Y;
                 var y2 = key.SecondPosition.Y;
@@ -120,8 +113,30 @@ namespace EPPlusLibrary
             var row = new List<T>(Enumerable.Repeat(defaultObj, xLength));
             var tableAsList = new List<List<T>>(Enumerable.Repeat(row, yLength));
             
+            foreach(var rectangle in rectangleKeys)
+            {
+                CalculateCells(rectangle, tableAsList);
+            }
 
-            
+            return tableAsList;
+        }
+
+        private void CalculateCells(Rectangle rectangle, List<List<T>> tableAsList)
+        {
+            var firstX = Math.Min((int)rectangle.FirstPosition.X, (int)rectangle.SecondPosition.X);
+            var firstY = Math.Min((int)rectangle.FirstPosition.Y, (int)rectangle.SecondPosition.Y);
+
+            var secondX = Math.Max((int)rectangle.FirstPosition.X, (int)rectangle.SecondPosition.X);
+            var secondY = Math.Max((int)rectangle.FirstPosition.Y, (int)rectangle.SecondPosition.Y);
+
+
+            for (var ix = firstX; ix <= secondX; ++ix)
+            {
+                for (var jy = firstY; jy <= secondY; ++jy)
+                {
+                    tableAsList[ix][jy] = valuesMap[rectangle];
+                }
+            }
         }
 
         /// <summary>
@@ -142,7 +157,7 @@ namespace EPPlusLibrary
         /// <returns></returns>
         private bool CheckForFree(Position inFirstPosition, Position inSecondPosition)
         {
-            return valuesMap.ContainsKey(new Rectangle(inFirstPosition, inSecondPosition));
+            return !valuesMap.ContainsKey(new Rectangle(inFirstPosition, inSecondPosition));
         }
 
         //public IEnumerable<IEnumerable>

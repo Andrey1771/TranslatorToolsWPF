@@ -11,8 +11,8 @@ namespace EPPlusLibrary
     {
         public Position FirstPosition { get; set; }
         public Position SecondPosition { get; set; }
-        public int XLength { get => (int)(SecondPosition - FirstPosition).X; }
-        public int YLength { get => (int)(SecondPosition - FirstPosition).Y; }
+        public int XDistance { get => (int)(SecondPosition - FirstPosition).X; }
+        public int YDistance { get => (int)(SecondPosition - FirstPosition).Y; }
 
         public Rectangle(Position firstPosition, Position secondPosition)
         {
