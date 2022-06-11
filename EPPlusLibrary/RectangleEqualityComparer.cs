@@ -11,8 +11,8 @@ namespace EPPlusLibrary
     {
         public bool Equals(Rectangle r1, Rectangle r2)
         {
-            var isIntersect = r1.FirstPosition.X < r2.SecondPosition.X || r1.SecondPosition.X > r2.FirstPosition.X ||
-                              r1.FirstPosition.Y < r2.SecondPosition.Y || r1.SecondPosition.Y > r2.FirstPosition.Y;
+            var isIntersect = r1.FirstPosition.X < r2.SecondPosition.X - 1 && r1.SecondPosition.X - 1 > r2.FirstPosition.X ||
+                              r1.FirstPosition.Y < r2.SecondPosition.Y - 1 && r1.SecondPosition.Y - 1 > r2.FirstPosition.Y;
             if (isIntersect)
                 return true;
             

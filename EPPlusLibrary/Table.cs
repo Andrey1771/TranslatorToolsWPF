@@ -51,6 +51,9 @@ namespace EPPlusLibrary
         {
             ok = true;
 
+            // Включаем точки
+            inSecondPosition++;
+
             if (CheckForFree(inFirstPosition, inSecondPosition))
                 valuesMap.Add(new Rectangle(inFirstPosition, inSecondPosition), obj);
             else
@@ -130,9 +133,9 @@ namespace EPPlusLibrary
             var secondY = Math.Max((int)rectangle.FirstPosition.Y, (int)rectangle.SecondPosition.Y);
 
 
-            for (var ix = firstX; ix <= secondX; ++ix)
+            for (var ix = firstX; ix < secondX; ++ix)
             {
-                for (var jy = firstY; jy <= secondY; ++jy)
+                for (var jy = firstY; jy < secondY; ++jy)
                 {
                     tableAsList[ix][jy] = valuesMap[rectangle];
                 }

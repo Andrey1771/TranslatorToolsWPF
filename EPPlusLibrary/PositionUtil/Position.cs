@@ -19,5 +19,8 @@
 
         public static Position operator -(Position leftPos, Position rightPos)
             => new Position(leftPos.X - rightPos.X, leftPos.Y - rightPos.Y);
+
+        public static Position operator ++(Position pos)
+            => new Position(++pos.X, ++pos.Y);
     }
 }
