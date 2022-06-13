@@ -91,12 +91,12 @@ namespace EPPlusLibrary
         /// <returns></returns>
         public List<List<T>> ToListTable(T defaultObj = default)
         {
-            var rectangleKeys = valuesMap.Keys;
+            var rectangleKeys = valuesMap.Keys.ToArray();
             var maxX = rectangleKeys.Max((key) =>
             {
                 var x1 = key.FirstPosition.X;
                 var x2 = key.SecondPosition.X;
-                return x1 > x2 ? x1 : x2;
+                return x1 > x2 ? key : key;
             });
             var maxY = rectangleKeys.Max((key) =>
             {
@@ -106,7 +106,7 @@ namespace EPPlusLibrary
             });
 
             var minPos = new Position(_minX, _minY);
-            var maxPos = new Position(maxX, maxY);
+            var maxPos = new Position(_minX, _minX);
 
             var difPositions = maxPos - minPos;
 
@@ -131,7 +131,6 @@ namespace EPPlusLibrary
 
             var secondX = Math.Max((int)rectangle.FirstPosition.X, (int)rectangle.SecondPosition.X);
             var secondY = Math.Max((int)rectangle.FirstPosition.Y, (int)rectangle.SecondPosition.Y);
-
 
             for (var ix = firstX; ix < secondX; ++ix)
             {
@@ -162,7 +161,5 @@ namespace EPPlusLibrary
         {
             return !valuesMap.ContainsKey(new Rectangle(inFirstPosition, inSecondPosition));
         }
-
-        //public IEnumerable<IEnumerable>
     }
 }
