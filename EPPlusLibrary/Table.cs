@@ -54,6 +54,22 @@ namespace EPPlusLibrary
             // Включаем точки
             inSecondPosition++;
 
+            var minPosition = new Position(0, 0);
+
+            if (inFirstPosition.X < minPosition.X || inFirstPosition.Y < minPosition.Y)
+            {
+                ok = false;
+                return this;
+            }
+
+            minPosition++;
+
+            if (inSecondPosition.X < minPosition.X || inSecondPosition.Y < minPosition.Y)
+            {
+                ok = false;
+                return this;
+            }
+
             if (CheckForFree(inFirstPosition, inSecondPosition))
                 valuesMap.Add(new Rectangle(inFirstPosition, inSecondPosition), obj);
             else

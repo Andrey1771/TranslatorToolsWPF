@@ -21,7 +21,6 @@ namespace EPPlusLibrary
 
         public int GetHashCode([DisallowNull] Rectangle obj)
         {
-            // Применить хеш код будет некорректно(Я пока не придумал как эффективно это делать), так как Equals несет другое значение
             return obj.FirstPosition.X.GetHashCode() + obj.FirstPosition.Y.GetHashCode() +
                    obj.SecondPosition.X.GetHashCode() + obj.SecondPosition.Y.GetHashCode();
         }
