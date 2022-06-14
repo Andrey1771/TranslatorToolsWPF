@@ -91,12 +91,16 @@ namespace EPPlusLibrary
         /// <returns></returns>
         public List<List<T>> ToListTable(T defaultObj = default)
         {
-            var rectangleKeys = valuesMap.Keys.ToArray();
+            var rectangleKeys = valuesMap.Keys;
+
+            if (rectangleKeys.Count == 0)
+                return new ();
+
             var maxX = rectangleKeys.Max((key) =>
             {
                 var x1 = key.FirstPosition.X;
                 var x2 = key.SecondPosition.X;
-                return x1 > x2 ? key : key;
+                return x1 > x2 ? x1 : x2;
             });
             var maxY = rectangleKeys.Max((key) =>
             {
@@ -106,15 +110,15 @@ namespace EPPlusLibrary
             });
 
             var minPos = new Position(_minX, _minY);
-            var maxPos = new Position(_minX, _minX);
+            var maxPos = new Position(maxX, maxY);
 
             var difPositions = maxPos - minPos;
 
             var xLength = Math.Abs((int)difPositions.X);
             var yLength = Math.Abs((int)difPositions.Y);
 
-            var row = new List<T>(Enumerable.Repeat(defaultObj, xLength));
-            var tableAsList = new List<List<T>>(Enumerable.Repeat(row, yLength));
+            var row = new List<T>(Enumerable.Range((int)minPos.X, xLength).Select(i => defaultObj));// Можно Repeat Разницы нет особо
+            var tableAsList = new List<List<T>>(Enumerable.Range((int)minPos.Y, yLength).Select(i => new List<T>(row)));
             
             foreach(var rectangle in rectangleKeys)
             {
@@ -136,7 +140,7 @@ namespace EPPlusLibrary
             {
                 for (var jy = firstY; jy < secondY; ++jy)
                 {
-                    tableAsList[ix][jy] = valuesMap[rectangle];
+                    tableAsList[jy][ix] = valuesMap[rectangle];
                 }
             }
         }

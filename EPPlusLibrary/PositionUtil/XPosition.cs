@@ -1,6 +1,8 @@
-﻿namespace EPPlusLibrary.PositionUtil
+﻿using System;
+
+namespace EPPlusLibrary.PositionUtil
 {
-    public struct XPosition
+    public struct XPosition : IComparable<XPosition>
     {
         int X { get; set; }
 
@@ -14,6 +16,12 @@
         
         public static bool operator <(XPosition leftXPos, XPosition rightXPos)
             => leftXPos.X < rightXPos.X;
+
+        public static bool operator >=(XPosition leftXPos, XPosition rightXPos)
+            => leftXPos.X >= rightXPos.X;
+
+        public static bool operator <=(XPosition leftXPos, XPosition rightXPos)
+            => leftXPos.X <= rightXPos.X;
 
         public static bool operator ==(XPosition leftXPos, XPosition rightXPos)
             => leftXPos.X == rightXPos.X;
@@ -32,6 +40,11 @@
 
         public static XPosition operator ++(XPosition pos)
             => new XPosition(++pos.X);
+
+        public int CompareTo(XPosition rightXPos)
+        {
+            return X.CompareTo(rightXPos.X);
+        }
 
         //public static XPosition operator =(int right)
         //=> new XPosition(right);
