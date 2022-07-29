@@ -1,8 +1,6 @@
-﻿using EPPlusLibrary.PositionUtil;
-using System;
-using System.Collections.Generic;
+﻿using DocumentBuilderLibrary.PositionUtil;
 
-namespace EPPlusLibrary
+namespace DocumentBuilderLibrary
 {
     public struct Rectangle
     {
@@ -38,7 +36,7 @@ namespace EPPlusLibrary
 
             var isIntersect2 = r2.FirstPosition.X < r1.SecondPosition.X && r2.FirstPosition.Y < r1.SecondPosition.Y &&
                                r2.SecondPosition.X > r1.FirstPosition.X && r2.SecondPosition.Y > r1.FirstPosition.Y;
-              
+
             var isIntersect3 = r2.X1Y2.X < r1.X2Y1.X && r2.X1Y2.Y < r1.X2Y1.Y &&
                                r2.X2Y1.X > r1.X1Y2.X && r2.X2Y1.Y > r1.X1Y2.Y;
 

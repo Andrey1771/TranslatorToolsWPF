@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TranslatorToolsLibrary.Settings
+﻿namespace TranslatorToolsLibrary.Settings
 {
     public class Configuration
     {

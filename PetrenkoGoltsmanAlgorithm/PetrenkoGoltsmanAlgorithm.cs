@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -85,7 +82,7 @@ namespace PetrenkoGoltsmanAlgorithmLibrary
                     rightStrListEnumerator.MoveNext();
                     if (leftIndex == rightIndex)
                         items.Add(rightStrListEnumerator.Current);
-                    
+
                 }
                 rightStrListEnumerator.Reset();
                 matchedStrings.Add(leftStrListEnumerator.Current, items);

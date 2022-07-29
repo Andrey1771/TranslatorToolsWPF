@@ -1,9 +1,8 @@
 ﻿using EventBusLibrary;
-using Serilog;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using TranslatorToolsLibrary.DI.IMessenger;
+using TranslatorToolsLibrary.DI.Messenger;
 
 namespace HttpClientLibrary
 {

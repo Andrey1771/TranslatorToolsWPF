@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EPPlusLibrary.PositionUtil;
+﻿using DocumentBuilderLibrary.PositionUtil;
 
-namespace EPPlusLibrary
+namespace DocumentBuilderLibrary
 {
-    public interface IExportFileBulder
+    public interface IDocumentBuilder
     {
         void AddPartToPos(IPart part, Position pos);
         void AddPartRight(IPart part, YPosition y);

@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Windows;
-using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 
 namespace TranslatorToolsWPF.Models
 {

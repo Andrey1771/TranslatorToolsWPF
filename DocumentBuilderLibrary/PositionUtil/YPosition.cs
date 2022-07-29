@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EPPlusLibrary.PositionUtil
+namespace DocumentBuilderLibrary.PositionUtil
 {
     public struct YPosition : IComparable<YPosition>
     {

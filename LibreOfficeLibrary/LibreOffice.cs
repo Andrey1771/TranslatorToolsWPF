@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LibreOfficeLibrary
+﻿namespace LibreOfficeLibrary
 {
     public class LibreOffice
     {

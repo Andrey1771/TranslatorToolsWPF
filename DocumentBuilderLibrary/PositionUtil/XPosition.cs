@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EPPlusLibrary.PositionUtil
+namespace DocumentBuilderLibrary.PositionUtil
 {
     public struct XPosition : IComparable<XPosition>
     {
@@ -13,7 +13,7 @@ namespace EPPlusLibrary.PositionUtil
 
         public static bool operator >(XPosition leftXPos, XPosition rightXPos)
             => leftXPos.X > rightXPos.X;
-        
+
         public static bool operator <(XPosition leftXPos, XPosition rightXPos)
             => leftXPos.X < rightXPos.X;
 
@@ -31,7 +31,7 @@ namespace EPPlusLibrary.PositionUtil
 
         public static implicit operator XPosition(int x)
             => new XPosition { X = x };
-        
+
         public static explicit operator int(XPosition xPosition)
             => xPosition.X;
 

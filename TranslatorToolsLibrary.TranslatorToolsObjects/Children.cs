@@ -1,7 +1,4 @@
-﻿using System;
-using TranslatorToolsLibrary.DI.Entities;
-
-namespace TranslatorToolsLibrary.TranslatorToolsObjects
+﻿namespace TranslatorToolsLibrary.TranslatorToolsObjects
 {
     public class Children /*: IChildren*/
     {

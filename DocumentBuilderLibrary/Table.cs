@@ -1,9 +1,9 @@
-﻿using EPPlusLibrary.PositionUtil;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DocumentBuilderLibrary.PositionUtil;
 
-namespace EPPlusLibrary
+namespace DocumentBuilderLibrary
 {
     /// <summary>
     /// 
@@ -110,7 +110,7 @@ namespace EPPlusLibrary
             var rectangleKeys = valuesMap.Keys;
 
             if (rectangleKeys.Count == 0)
-                return new ();
+                return new();
 
             var maxX = rectangleKeys.Max((key) =>
             {
@@ -135,8 +135,8 @@ namespace EPPlusLibrary
 
             var row = new List<T>(Enumerable.Range((int)minPos.X, xLength).Select(i => defaultObj));// Можно Repeat Разницы нет особо
             var tableAsList = new List<List<T>>(Enumerable.Range((int)minPos.Y, yLength).Select(i => new List<T>(row)));
-            
-            foreach(var rectangle in rectangleKeys)
+
+            foreach (var rectangle in rectangleKeys)
             {
                 CalculateCells(rectangle, tableAsList);
             }

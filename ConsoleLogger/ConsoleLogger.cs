@@ -1,5 +1,5 @@
 ﻿using System;
-using TranslatorToolsLibrary.DI.IMessenger;
+using TranslatorToolsLibrary.DI.Messenger;
 
 namespace ConsoleLoggerLibrary
 {

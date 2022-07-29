@@ -3,7 +3,7 @@ using PetrenkoGoltsmanAlgorithmLibrary;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace TranslatorToolsWPFTests
+namespace TranslatorToolsWPFTests.PetrenkoGoltsmanAlgorithmTests
 {
     [TestClass]
     public class PetrenkoGoltsmanAlgorithmTests

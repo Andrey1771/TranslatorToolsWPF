@@ -1,13 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.IO;
-using TranslatorToolsLibrary.DI;
 using System.Threading.Tasks;
-using System.Threading;
-using Newtonsoft.Json;
 
-namespace JsonSaveLoaderLibrary
+namespace TranslatorToolsLibrary.JsonSaveLoaderLibrary
 {
     public class JsonSaveLoader<T>/* : *//*IFileController<T>,*//* IAsyncFileController<T>*/
     {
@@ -17,14 +14,14 @@ namespace JsonSaveLoaderLibrary
             //return Deserialize(path);
         }
 
-/*        public Task<ICollection<T>> LoadAsync(string path)
-        {
+        /*        public Task<ICollection<T>> LoadAsync(string path)
+                {
 
-            return Task.Run(() =>
-            {
-                return Load(path);
-            });
-        }*/
+                    return Task.Run(() =>
+                    {
+                        return Load(path);
+                    });
+                }*/
 
         public void Save(ICollection<T> data, string path)
         {
@@ -69,7 +66,7 @@ namespace JsonSaveLoaderLibrary
                 {
                     TypeNameHandling = TypeNameHandling.Auto,
                     NullValueHandling = NullValueHandling.Ignore,
-                    
+
                 };
 
                 var file = File.ReadAllText(path);

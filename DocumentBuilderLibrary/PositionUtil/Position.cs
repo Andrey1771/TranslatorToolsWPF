@@ -1,4 +1,4 @@
-﻿namespace EPPlusLibrary.PositionUtil
+﻿namespace DocumentBuilderLibrary.PositionUtil
 {
     public struct Position
     {

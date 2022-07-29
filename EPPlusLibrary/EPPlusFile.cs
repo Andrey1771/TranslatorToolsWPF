@@ -6,7 +6,7 @@ namespace EPPlusLibrary
 {
     public class EPPlusFile<T> : ITranslatorFile<T>
     {
-        EPPlusSaveLoaderController<T> saveLoaderController;
+        EPPlusSaveLoaderController<T> saveLoaderController; // TODO Refactoring links for project
 
         EPPlusFile()
         {

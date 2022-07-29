@@ -1,11 +1,10 @@
-﻿using JsonSaveLoaderLibrary;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TranslatorToolsLibrary.DI;
 using TranslatorToolsLibrary.DI.Entities;
+using TranslatorToolsLibrary.JsonSaveLoaderLibrary;
 using TranslatorToolsLibrary.TranslatorToolsObjects;
 
-namespace TranslatorToolsLibrary.TranslatorToolsLibrary
+namespace TranslatorToolsLibrary
 {
     public class TranslatorTools : ITranslatorTools
     {
@@ -28,7 +27,7 @@ namespace TranslatorToolsLibrary.TranslatorToolsLibrary
         {
             var jsonController = new JsonSaveLoader<FileTranslation>();
             var some = jsonController.Load(path);
-            FileTranslations = new List<IFileTranslation>() {  };
+            FileTranslations = new List<IFileTranslation>() { };
         }
 
     }
