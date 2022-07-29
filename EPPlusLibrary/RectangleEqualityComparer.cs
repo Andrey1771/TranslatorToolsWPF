@@ -11,18 +11,14 @@ namespace EPPlusLibrary
     {
         public bool Equals(Rectangle r1, Rectangle r2)
         {
-            var isIntersect = r1.FirstPosition.X <= r2.SecondPosition.X - 1 && r1.SecondPosition.X - 1 >= r2.FirstPosition.X ||
-                              r1.FirstPosition.Y <= r2.SecondPosition.Y - 1 && r1.SecondPosition.Y - 1 >= r2.FirstPosition.Y;
-            if (isIntersect)
-                return true;
-
-            return false;
+            var isIntersect = r1.IsIntersect(r2);
+            return isIntersect;
         }
 
         public int GetHashCode([DisallowNull] Rectangle obj)
         {
-            return obj.FirstPosition.X.GetHashCode() + obj.FirstPosition.Y.GetHashCode() +
-                   obj.SecondPosition.X.GetHashCode() + obj.SecondPosition.Y.GetHashCode();
+            // TODO Так как назначение Equals по сути ответ на пересечение, то GetHashCode некорректен
+            return 0;
         }
     }
 }

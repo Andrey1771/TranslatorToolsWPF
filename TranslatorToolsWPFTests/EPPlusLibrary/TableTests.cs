@@ -167,7 +167,8 @@ namespace TranslatorToolsWPFTests.EPPlusLibrary
 
             var checkList = result.Select((row, index) => row.SequenceEqual(correctAnswer[index]));
 
-            Assert.AreEqual(!checkList.All(isCorrect => isCorrect) || ok, false);
+            Assert.AreEqual(checkList.All(isCorrect => isCorrect), true);
+            Assert.AreEqual(ok, false);
         }
 
         [TestMethod]
@@ -175,7 +176,7 @@ namespace TranslatorToolsWPFTests.EPPlusLibrary
         {
             bool ok;
             var table = new Table<int>();
-            var tablePositions = new List<Position>() { new Position(1, 1), new Position(2, 2), new Position(3, 2), new Position(5, 5) };
+            var tablePositions = new List<Position>() { new Position(1, 1), new Position(2, 2), new Position(2, 2), new Position(5, 5) };
 
             var result = table.Add(tablePositions[0], tablePositions[1], 1, out ok).Add(tablePositions[2], tablePositions[3], 2, out ok).ToListTable();
 
@@ -205,7 +206,8 @@ namespace TranslatorToolsWPFTests.EPPlusLibrary
             };
             var checkList = result.Select((row, index) => row.SequenceEqual(correctAnswer[index]));
 
-            Assert.AreEqual(!checkList.All(isCorrect => isCorrect) || ok, false);
+            Assert.AreEqual(checkList.All(isCorrect => isCorrect), true);
+            Assert.AreEqual(ok, false);
         }
     }
 }
