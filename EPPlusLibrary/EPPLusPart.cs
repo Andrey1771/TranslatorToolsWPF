@@ -4,7 +4,17 @@ namespace EPPlusLibrary
 {
     internal class EPPLusPart : IPart
     {
-        public Table<int> Area { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-        public string Data { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public Table<string> Data { get; set; }
+
+        public void MergePart(IPart part)
+        {
+            var ok = true;
+            Data.Add(part.Data, out ok);
+        }
+
+        public void RemovePart(IPart part)
+        {
+            Data.Delete(part.Data);
+        }
     }
 }

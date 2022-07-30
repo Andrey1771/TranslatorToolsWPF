@@ -1,26 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using TranslatorToolsLibrary.DI;
+using DocumentBuilderLibrary;
 
 namespace EPPlusLibrary
 {
-    public class EPPlusFile<T> : ITranslatorFile<T>
+    public class EPPlusFile<T> : IFile
     {
-        EPPlusSaveLoaderController<T> saveLoaderController; // TODO Refactoring links for project
+        EPPlusSaveLoaderController<T> _saveLoaderController; // TODO Refactoring links for project
+        IPart _filePart = new EPPLusPart();
 
         EPPlusFile()
         {
-
+            
         }
 
-        public void MergeFiles(ICollection<T> data)
+        public void AddPart(IPart part)
         {
-            throw new NotImplementedException();
+            _filePart.MergePart(part);
         }
 
-        public void UpdateFile(T file)
+        public void RemovePart(IPart part)
         {
-            throw new NotImplementedException();
+            _filePart.RemovePart(part);
         }
     }
 }

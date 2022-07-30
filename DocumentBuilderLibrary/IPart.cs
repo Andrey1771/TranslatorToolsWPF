@@ -2,7 +2,9 @@
 {
     public interface IPart
     {
-        Table<int> Area { get; set; }
-        string Data { get; set; }
+        Table<string> Data { get; set; }
+
+        void MergePart(IPart part);
+        void RemovePart(IPart part);
     }
 }

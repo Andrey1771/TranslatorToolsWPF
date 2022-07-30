@@ -27,6 +27,18 @@ namespace DocumentBuilderLibrary
             get { return valuesMap[new Rectangle(new Position(x, y), new Position(x, y))]; }
         }
 
+        public Table<T> Add(Table<T> table, out bool ok)
+        { // TODO Добавить тесты
+            table.valuesMap.Select(keyValue =>
+            {
+                var ok = false;
+                return Add(keyValue.Key.FirstPosition, keyValue.Key.SecondPosition, keyValue.Value, out ok);
+            });
+
+            ok = true; // TODO Ok не работает везде как надо, удалить или изменить в будущем
+            return this;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -78,6 +90,15 @@ namespace DocumentBuilderLibrary
             return this;
         }
 
+        public Table<T> Delete(Table<T> table)
+        { // TODO Добавить тесты
+            table.valuesMap.Select(keyValue =>
+            {
+                return Delete(keyValue.Key.FirstPosition, keyValue.Key.SecondPosition);
+            });
+            return this;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -98,6 +119,11 @@ namespace DocumentBuilderLibrary
         {
             valuesMap.Remove(new Rectangle(inFirstPosition, inSecondPosition));
             return this;
+        }
+
+        public List<KeyValuePair<Rectangle,T>> ToList()
+        {
+            return valuesMap.ToList();
         }
 
         /// <summary>
