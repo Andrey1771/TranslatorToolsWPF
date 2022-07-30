@@ -27,6 +27,21 @@ namespace DocumentBuilderLibrary
             get { return valuesMap[new Rectangle(new Position(x, y), new Position(x, y))]; }
         }
 
+        public Table<T> AddToEndHorizontally(T obj, out bool ok)
+        {
+            // TODO Дублирование
+            var rectangleKeys = valuesMap.Keys;
+
+            var maxX = rectangleKeys.Max((key) =>
+            {
+                var x1 = key.FirstPosition.X;
+                var x2 = key.SecondPosition.X;
+                return x1 > x2 ? x1 : x2;
+            });
+
+            return Add(new Position(++maxX, new YPosition(0)), obj, out ok);
+        }
+
         public Table<T> Add(Table<T> table, out bool ok)
         { // TODO Добавить тесты
             table.valuesMap.Select(keyValue =>

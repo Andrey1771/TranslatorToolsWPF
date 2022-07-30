@@ -1,4 +1,4 @@
-﻿namespace DocumentBuilderLibrary
+﻿namespace DocumentBuilderLibrary.Interfaces
 {
     public interface IFile
     {

@@ -1,12 +1,20 @@
 ﻿using DocumentBuilderLibrary;
+using DocumentBuilderLibrary.Interfaces;
+using DocumentBuilderLibrary.Interfaces.Strategies;
 
 namespace EPPlusLibrary
 {
-    internal class EPPLusPart : IPart
+    public class EPPLusPart : IPart
     {
-        public Table<string> Data { get; set; }
+        public Table<string> Data { get; }
 
-        public void MergePart(IPart part)
+        public void AddData(Table<string> dataTable)
+        {
+            var ok = true;
+            Data.Add(dataTable, out ok);
+        }
+
+        public void MergePart(IPart part, IAddStrategy addStrategy)
         {
             var ok = true;
             Data.Add(part.Data, out ok);

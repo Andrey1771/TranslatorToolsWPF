@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using DocumentBuilderLibrary;
+using DocumentBuilderLibrary.Interfaces;
+using DocumentBuilderLibrary.Interfaces.Strategies;
+using EPPlusLibrary.Strategies;
 
 namespace EPPlusLibrary
 {
     public class EPPlusFile<T> : IFile
     {
-        EPPlusSaveLoaderController<T> _saveLoaderController; // TODO Refactoring links for project
+        // TODO Refactoring links for project
         IPart _filePart = new EPPLusPart();
 
         EPPlusFile()
@@ -16,7 +18,7 @@ namespace EPPlusLibrary
 
         public void AddPart(IPart part)
         {
-            _filePart.MergePart(part);
+            _filePart.MergePart(part, new AddEpplusStrategy());
         }
 
         public void RemovePart(IPart part)
